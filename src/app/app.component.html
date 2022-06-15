@@ -1,13 +1,14 @@
-<form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm, pincode)">
+<form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
 
   <p>
-    <label for="firstname">First Name: </label>
-    <input type="text" id="firstname" name="firstname" ngModel>
+    <label for="firstName">First Name: </label>
+    <input type="text" id="firstName" name="firstName" ngModel>
+    <!-- <input type="text" id="firstName" name="firstName" [(ngModel)]="Contact.firstName"> -->
   </p>
 
   <p>
-    <label for="lastname">Last Name: </label>
-    <input type="text" id="lastname" name="lastname" ngModel>
+    <label for="lastName">Last Name: </label>
+    <input type="text" id="lastName" name="lastName" ngModel>
   </p>
 
   <p>
@@ -55,6 +56,16 @@
   </p>
 
   <button type="submit">Submit</button>
+
+  <p>
+    <button type="button" (click)="changeCountry()">Change Country</button>
+    <button type="button" (click)="setDefaults()">Set Defaults</button>
+    <button type="button" (click)="reset()">Reset</button>
+    <button type="button" (click)="patchValue()">Patch Value</button>
+    <button type="button" (click)="changeAddress()">Change Address</button>
+    <button type="button" (click)="resetForm()">Reset Form</button>
+  
+  </p>
 
   <pre>Value: {{contactForm.value | json}}</pre>
   <pre> Valid: {{contactForm.valid}} </pre>
